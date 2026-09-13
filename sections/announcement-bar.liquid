@@ -1,0 +1,50 @@
+{%- if section.settings.show_announcement -%}
+  <div class="text-[11px] sm:text-xs py-2 tracking-widest text-center uppercase font-medium transition-colors"
+       style="background-color: {{ section.settings.bg_color | default: '#56604D' }}; color: {{ section.settings.text_color | default: '#FAF8F5' }};"
+       data-purpose="announcement-bar">
+    {%- if section.settings.link != blank -%}
+      <a href="{{ section.settings.link }}" class="hover:underline">
+        {{ section.settings.text | default: 'FREE SHIPPING ON ORDERS OVER $75 | EASY RETURNS' }}
+      </a>
+    {%- else -%}
+      <span>{{ section.settings.text | default: 'FREE SHIPPING ON ORDERS OVER $75 | EASY RETURNS' }}</span>
+    {%- endif -%}
+  </div>
+{%- endif -%}
+
+{% schema %}
+{
+  "name": "Announcement Bar",
+  "settings": [
+    {
+      "type": "checkbox",
+      "id": "show_announcement",
+      "label": "Show Announcement",
+      "default": true
+    },
+    {
+      "type": "text",
+      "id": "text",
+      "label": "Announcement Text",
+      "default": "FREE SHIPPING ON ORDERS OVER $75 | EASY RETURNS"
+    },
+    {
+      "type": "url",
+      "id": "link",
+      "label": "Link (Optional)"
+    },
+    {
+      "type": "color",
+      "id": "bg_color",
+      "label": "Background Color",
+      "default": "#56604D"
+    },
+    {
+      "type": "color",
+      "id": "text_color",
+      "label": "Text Color",
+      "default": "#FAF8F5"
+    }
+  ]
+}
+{% endschema %}
