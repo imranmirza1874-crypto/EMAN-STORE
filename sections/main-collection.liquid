@@ -1,0 +1,66 @@
+{% comment %}
+  Main Collection Section for Threadora Theme
+{% endcomment %}
+
+<section class="py-12 md:py-16 bg-white">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    
+    <!-- Collection Header -->
+    <div class="text-center mb-10">
+      <span class="text-xs uppercase tracking-[0.2em] text-neutral-500 font-semibold mb-2 block">Collections</span>
+      <h1 class="font-serif-heading text-3xl sm:text-4xl text-neutral-900 uppercase">
+        {{ collection.title | default: 'All Products' }}
+      </h1>
+      {%- if collection.description != blank -%}
+        <p class="text-neutral-500 text-sm max-w-xl mx-auto mt-3">
+          {{ collection.description }}
+        </p>
+      {%- endif -%}
+      <div class="w-12 h-[1px] bg-neutral-800 mx-auto mt-4"></div>
+    </div>
+
+    <!-- Collection Toolbar -->
+    <div class="flex items-center justify-between border-b border-neutral-200 pb-4 mb-8 text-xs text-neutral-600">
+      <span>Showing {{ collection.products_count | default: 4 }} items</span>
+      <div class="flex items-center space-x-2">
+        <label for="SortBy" class="font-semibold uppercase tracking-wider">Sort by:</label>
+        <select id="SortBy" class="bg-white border border-neutral-300 text-xs px-2 py-1 focus:outline-none">
+          <option value="manual">Featured</option>
+          <option value="price-ascending">Price: Low to High</option>
+          <option value="price-descending">Price: High to Low</option>
+          <option value="created-descending">Newest</option>
+        </select>
+      </div>
+    </div>
+
+    <!-- Collection Grid -->
+    <div class="grid grid-cols-2 md:grid-cols-4 gap-x-4 gap-y-8 lg:gap-x-6">
+      {%- if collection.products.size > 0 -%}
+        {%- for product in collection.products -%}
+          {% render 'card-product', card_product: product %}
+        {%- endfor -%}
+      {%- else -%}
+        <!-- Default sample products -->
+        {% render 'card-product' %}
+      {%- endif -%}
+    </div>
+
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Main Collection",
+  "settings": [
+    {
+      "type": "range",
+      "id": "products_per_page",
+      "min": 8,
+      "max": 36,
+      "step": 4,
+      "default": 16,
+      "label": "Products per page"
+    }
+  ]
+}
+{% endschema %}
