@@ -1,0 +1,78 @@
+{% comment %}
+  Renders a luxury Threadora product card
+  Accepts:
+  - card_product: {Object} Product Liquid object
+  - show_secondary_image: {Boolean} Show the secondary image on hover
+  - show_vendor: {Boolean} Show the product vendor
+  - show_rating: {Boolean} Show the product rating
+{% endcomment %}
+
+{%- liquid
+  assign featured_media = card_product.featured_media
+  assign title = card_product.title | default: 'Linen Blend Essential'
+  assign price = card_product.price | default: 4999
+  assign compare_at_price = card_product.compare_at_price
+  assign available = card_product.available | default: true
+-%}
+
+<div class="product-card group relative flex flex-col" data-product-id="{{ card_product.id | default: 1 }}">
+  <div class="product-card__media-wrapper relative w-full aspect-[3/4] bg-neutral-100 overflow-hidden mb-3">
+    {%- if compare_at_price > price -%}
+      <span class="product-card__badge badge--sale">Sale</span>
+    {%- endif -%}
+
+    <!-- Wishlist Button -->
+    <button 
+      type="button" 
+      aria-label="Add to wishlist" 
+      class="product-card__wishlist-btn"
+      data-wishlist-btn
+    >
+      {% render 'icon-heart' %}
+    </button>
+
+    <!-- Product Image -->
+    {%- if featured_media -%}
+      <img 
+        src="{{ featured_media | image_url: width: 600 }}" 
+        alt="{{ featured_media.alt | escape | default: title }}"
+        class="product-card__image w-full h-full object-cover object-top transition duration-300 group-hover:scale-105"
+        loading="lazy"
+        width="600"
+        height="800"
+      >
+    {%- else -%}
+      <img 
+        src="https://lh3.googleusercontent.com/aida-public/AB6AXuBBBEowAv6nO3m8dN9Nl8nhvoHW86COW0DNZh90J_KseCOsXl8JNKWNunio7YmrKPtif706uLL8uEfviBo1PXLDYZhdb885bMJl635pwc2S94M2rMByeHLPgVro22MIghSohsVYdWNNR56Q0eUbciOBEzYGi2e2VazgabwKyvN4WJ_dfqAfMPcldTiwwuluaq1ulbUj1dLayn22_vhifTS_3n2BFh9zDIKLHteydLLKFyDn4MDPEMtE" 
+        alt="{{ title }}"
+        class="product-card__image w-full h-full object-cover object-top transition duration-300 group-hover:scale-105"
+        loading="lazy"
+      >
+    {%- endif -%}
+
+    <!-- Quick Add Button -->
+    <button 
+      type="button" 
+      class="product-card__quick-add"
+      data-quick-add
+      data-product-id="{{ card_product.id | default: 1 }}"
+      data-product-title="{{ title | escape }}"
+      data-product-price="{{ price | divided_by: 100.0 }}"
+      data-product-image="{{ featured_media | image_url: width: 200 | default: 'https://lh3.googleusercontent.com/aida-public/AB6AXuBBBEowAv6nO3m8dN9Nl8nhvoHW86COW0DNZh90J_KseCOsXl8JNKWNunio7YmrKPtif706uLL8uEfviBo1PXLDYZhdb885bMJl635pwc2S94M2rMByeHLPgVro22MIghSohsVYdWNNR56Q0eUbciOBEzYGi2e2VazgabwKyvN4WJ_dfqAfMPcldTiwwuluaq1ulbUj1dLayn22_vhifTS_3n2BFh9zDIKLHteydLLKFyDn4MDPEMtE' }}"
+      data-product-variant="Default"
+    >
+      + Quick Add
+    </button>
+  </div>
+
+  <div class="product-card__content">
+    <h3 class="product-card__title">
+      <a href="{{ card_product.url | default: '#' }}">
+        {{ title }}
+      </a>
+    </h3>
+
+    {% render 'price', product: card_product %}
+    {% render 'color-swatches', product: card_product %}
+  </div>
+</div>
