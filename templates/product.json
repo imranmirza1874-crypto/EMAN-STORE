@@ -1,0 +1,22 @@
+{
+  "sections": {
+    "main": {
+      "type": "main-product",
+      "settings": {
+        "show_vendor": true,
+        "enable_sticky_info": true
+      }
+    },
+    "recommendations": {
+      "type": "new-arrivals",
+      "settings": {
+        "title": "YOU MAY ALSO LIKE",
+        "products_to_show": 4
+      }
+    }
+  },
+  "order": [
+    "main",
+    "recommendations"
+  ]
+}
