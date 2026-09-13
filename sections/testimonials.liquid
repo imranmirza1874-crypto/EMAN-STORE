@@ -1,0 +1,61 @@
+<section class="py-16 bg-[#FAF9F7] border-t border-neutral-200" data-purpose="customer-review">
+  <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative">
+    <h2 class="font-serif-heading text-2xl sm:text-3xl text-neutral-900 uppercase font-medium tracking-widest mb-10">
+      {{ section.settings.title | default: 'WHAT OUR CUSTOMERS SAY' }}
+    </h2>
+
+    <!-- Navigation Carats -->
+    <button type="button" id="TestimonialPrev" aria-label="Previous Testimonial" class="absolute left-2 sm:left-4 top-1/2 -translate-y-1/2 text-neutral-400 hover:text-neutral-800 transition p-2">
+      {% render 'icon-arrow', direction: 'left' %}
+    </button>
+    <button type="button" id="TestimonialNext" aria-label="Next Testimonial" class="absolute right-2 sm:right-4 top-1/2 -translate-y-1/2 text-neutral-400 hover:text-neutral-800 transition p-2">
+      {% render 'icon-arrow', direction: 'right' %}
+    </button>
+
+    <div class="px-8 sm:px-16">
+      <p id="TestimonialQuote" class="text-neutral-700 text-sm sm:text-base leading-relaxed font-serif italic mb-6 transition-all duration-300">
+        "{{ section.settings.quote | default: 'The quality is amazing and the fit is perfect! I love how everything feels so comfortable and looks so stylish.' }}"
+      </p>
+
+      <!-- 5-Star Rating -->
+      <div class="flex justify-center items-center space-x-1 text-[#56604D] mb-3 text-sm">
+        <span>★</span><span>★</span><span>★</span><span>★</span><span>★</span>
+      </div>
+
+      <p id="TestimonialAuthor" class="text-xs uppercase font-semibold tracking-widest text-neutral-800">
+        {{ section.settings.author | default: 'Emily R.' }}
+      </p>
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Testimonials",
+  "settings": [
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Section Title",
+      "default": "WHAT OUR CUSTOMERS SAY"
+    },
+    {
+      "type": "textarea",
+      "id": "quote",
+      "label": "Customer Quote",
+      "default": "The quality is amazing and the fit is perfect! I love how everything feels so comfortable and looks so stylish."
+    },
+    {
+      "type": "text",
+      "id": "author",
+      "label": "Customer Name",
+      "default": "Emily R."
+    }
+  ],
+  "presets": [
+    {
+      "name": "Testimonials"
+    }
+  ]
+}
+{% endschema %}
