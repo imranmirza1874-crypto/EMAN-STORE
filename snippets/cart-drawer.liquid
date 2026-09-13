@@ -1,0 +1,75 @@
+{% comment %}
+  Slide-out AJAX Cart Drawer Snippet for Threadora Theme
+{% endcomment %}
+
+<div id="CartDrawerOverlay" class="cart-drawer-overlay"></div>
+
+<aside id="CartDrawer" class="cart-drawer" role="dialog" aria-modal="true" aria-label="{{ 'cart.title' | t }}">
+  <div class="cart-drawer__header">
+    <h3 class="cart-drawer__title">{{ 'cart.title' | t }} (<span data-cart-count>{{ cart.item_count | default: 1 }}</span>)</h3>
+    <button type="button" id="CartDrawerClose" class="cart-drawer__close" aria-label="{{ 'general.close' | t }}">
+      ✕
+    </button>
+  </div>
+
+  <!-- Free Shipping Calculator -->
+  <div class="cart-drawer__free-shipping">
+    <p id="FreeShippingText" class="cart-drawer__free-shipping-text">
+      Add <strong>$20.01</strong> more for <strong>Free Shipping</strong>
+    </p>
+    <div class="cart-drawer__progress-bar">
+      <div id="FreeShippingBar" class="cart-drawer__progress-fill" style="width: 73%;"></div>
+    </div>
+  </div>
+
+  <!-- Cart Line Items Container -->
+  <div id="CartDrawerItems" class="cart-drawer__items">
+    <!-- Populated dynamically by theme.js or initial server render -->
+    {%- if cart.items.size > 0 -%}
+      {%- for item in cart.items -%}
+        <div class="cart-drawer__item" data-item-id="{{ item.id }}">
+          <img src="{{ item.image | image_url: width: 140 }}" alt="{{ item.title | escape }}" class="cart-drawer__item-image">
+          <div class="cart-drawer__item-details">
+            <h4 class="cart-drawer__item-title">{{ item.product.title }}</h4>
+            <span class="cart-drawer__item-variant">{{ item.variant.title }}</span>
+            <span class="cart-drawer__item-price">{{ item.final_line_price | money }}</span>
+            <div class="cart-drawer__qty-wrapper">
+              <button type="button" class="cart-drawer__qty-btn" data-cart-action="decrease" data-item-id="{{ item.id }}">-</button>
+              <span class="cart-drawer__qty-value">{{ item.quantity }}</span>
+              <button type="button" class="cart-drawer__qty-btn" data-cart-action="increase" data-item-id="{{ item.id }}">+</button>
+            </div>
+            <button type="button" class="cart-drawer__item-remove" data-cart-action="remove" data-item-id="{{ item.id }}">Remove</button>
+          </div>
+        </div>
+      {%- endfor -%}
+    {%- else -%}
+      <!-- Default fallback sample item for preview -->
+      <div class="cart-drawer__item">
+        <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuBBBEowAv6nO3m8dN9Nl8nhvoHW86COW0DNZh90J_KseCOsXl8JNKWNunio7YmrKPtif706uLL8uEfviBo1PXLDYZhdb885bMJl635pwc2S94M2rMByeHLPgVro22MIghSohsVYdWNNR56Q0eUbciOBEzYGi2e2VazgabwKyvN4WJ_dfqAfMPcldTiwwuluaq1ulbUj1dLayn22_vhifTS_3n2BFh9zDIKLHteydLLKFyDn4MDPEMtE" alt="Linen Blend Shirt Dress" class="cart-drawer__item-image">
+        <div class="cart-drawer__item-details">
+          <h4 class="cart-drawer__item-title">Linen Blend Shirt Dress</h4>
+          <span class="cart-drawer__item-variant">Sage / M</span>
+          <span class="cart-drawer__item-price">$54.99</span>
+          <div class="cart-drawer__qty-wrapper">
+            <button type="button" class="cart-drawer__qty-btn" data-cart-action="decrease" data-item-id="1">-</button>
+            <span class="cart-drawer__qty-value">1</span>
+            <button type="button" class="cart-drawer__qty-btn" data-cart-action="increase" data-item-id="1">+</button>
+          </div>
+          <button type="button" class="cart-drawer__item-remove" data-cart-action="remove" data-item-id="1">Remove</button>
+        </div>
+      </div>
+    {%- endif -%}
+  </div>
+
+  <!-- Cart Footer with Subtotal & Checkout -->
+  <div class="cart-drawer__footer">
+    <div class="cart-drawer__subtotal-row">
+      <span class="cart-drawer__subtotal-label">{{ 'cart.subtotal' | t }}</span>
+      <span class="cart-drawer__subtotal-amount" data-cart-subtotal>{{ cart.total_price | money | default: '$54.99' }}</span>
+    </div>
+    <a href="/checkout" class="btn btn-primary btn-full mb-2">
+      {{ 'cart.checkout' | t }}
+    </a>
+    <p class="text-[10px] text-center text-neutral-400 mt-2">Taxes and shipping calculated at checkout</p>
+  </div>
+</aside>
