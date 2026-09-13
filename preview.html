@@ -1,0 +1,555 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+  <title>THREADORA | Timeless Style, Modern You (Shopify OS 2.0 Theme Preview)</title>
+
+  <!-- Google Fonts: Cormorant Garamond & Montserrat -->
+  <link href="https://fonts.googleapis.com" rel="preconnect"/>
+  <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
+
+  <!-- Tailwind CSS CDN for utility architecture -->
+  <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              sand: '#F7F4F0',
+              cream: '#FAF9F6',
+              olive: '#4D5943',
+              darkOlive: '#3E4836',
+              charcoal: '#222222',
+              muted: '#71717A',
+              border: '#E5E2DC'
+            }
+          },
+          fontFamily: {
+            serif: ['"Cormorant Garamond"', 'serif'],
+            sans: ['"Montserrat"', 'sans-serif']
+          }
+        }
+      }
+    }
+  </script>
+
+  <!-- Theme CSS System -->
+  <link rel="stylesheet" href="./assets/theme.css">
+</head>
+<body class="antialiased text-brand-charcoal flex flex-col min-h-screen">
+
+  <!-- BEGIN: AnnouncementBar Section -->
+  <div class="bg-[#56604D] text-[#FAF8F5] text-[11px] sm:text-xs py-2 tracking-widest text-center uppercase font-medium transition-colors" data-purpose="announcement-bar">
+    FREE SHIPPING ON ORDERS OVER $75 | EASY RETURNS
+  </div>
+  <!-- END: AnnouncementBar Section -->
+
+  <!-- BEGIN: NavigationHeader Section -->
+  <header class="border-b border-brand-border bg-white sticky top-0 z-50 transition-all duration-300" data-purpose="main-navigation">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+      
+      <!-- Mobile Hamburger Menu Button -->
+      <button type="button" id="MobileNavTrigger" class="md:hidden text-neutral-800 p-1.5 focus:outline-none" aria-label="Open menu">
+        <svg class="w-6 h-6 stroke-current stroke-2" fill="none" viewBox="0 0 24 24">
+          <path d="M4 6h16M4 12h16M4 18h16" stroke-linecap="round" stroke-linejoin="round"></path>
+        </svg>
+      </button>
+
+      <!-- Logo Branding -->
+      <a class="flex flex-col text-center md:text-left" href="#">
+        <span class="font-serif-heading text-2xl sm:text-3xl font-bold tracking-[0.2em] leading-none text-brand-charcoal">THREADORA</span>
+        <span class="text-[8px] uppercase tracking-[0.22em] text-neutral-500 mt-1 font-semibold">Timeless Style, Modern You</span>
+      </a>
+
+      <!-- Desktop Navigation Links -->
+      <nav class="hidden md:flex items-center space-x-8 text-xs font-semibold uppercase tracking-wider text-neutral-800">
+        <a class="hover:text-brand-olive transition-colors" href="#">Home</a>
+        <div class="relative group cursor-pointer flex items-center gap-1 hover:text-brand-olive transition-colors">
+          <span>Shop</span>
+          <svg class="w-3.5 h-3.5 stroke-current" fill="none" viewBox="0 0 24 24"><path d="M19 9l-7 7-7-7" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg>
+        </div>
+        <div class="relative group cursor-pointer flex items-center gap-1 hover:text-brand-olive transition-colors">
+          <span>Collections</span>
+          <svg class="w-3.5 h-3.5 stroke-current" fill="none" viewBox="0 0 24 24"><path d="M19 9l-7 7-7-7" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg>
+        </div>
+        <a class="hover:text-brand-olive transition-colors" href="#">About Us</a>
+        <a class="hover:text-brand-olive transition-colors" href="#">Blog</a>
+        <a class="hover:text-brand-olive transition-colors" href="#">Contact</a>
+      </nav>
+
+      <!-- Action Utility Icons -->
+      <div class="flex items-center space-x-5 text-neutral-800">
+        <button aria-label="Search" class="hover:text-brand-olive transition-colors">
+          <svg class="w-5 h-5 stroke-[1.6]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"></circle><path d="m21 21-4.35-4.35" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+        </button>
+        <button aria-label="Account" class="hover:text-brand-olive transition-colors">
+          <svg class="w-5 h-5 stroke-[1.6]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M16 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2" stroke-linecap="round" stroke-linejoin="round"></path><circle cx="10" cy="7" r="4"></circle></svg>
+        </button>
+        <button aria-label="Shopping Bag" class="hover:text-brand-olive transition-colors relative" data-cart-trigger>
+          <svg class="w-5 h-5 stroke-[1.6]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z" stroke-linecap="round" stroke-linejoin="round"></path><path d="M3 6h18" stroke-linecap="round" stroke-linejoin="round"></path><path d="M16 10a4 4 0 0 1-8 0" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+          <span class="absolute -top-1.5 -right-2 bg-neutral-800 text-white rounded-full text-[9px] w-4 h-4 flex items-center justify-center font-bold" data-cart-count>1</span>
+        </button>
+      </div>
+
+    </div>
+  </header>
+  <!-- END: NavigationHeader Section -->
+
+  <!-- Mobile Navigation Drawer -->
+  <div id="MobileNavOverlay" class="cart-drawer-overlay"></div>
+  <div id="MobileNavDrawer" class="mobile-nav-drawer">
+    <div class="flex items-center justify-between pb-4 border-b border-brand-border mb-4">
+      <span class="font-serif-heading text-lg font-bold">THREADORA</span>
+      <button id="MobileNavClose" class="text-xl p-2">&times;</button>
+    </div>
+    <nav class="flex flex-col space-y-1">
+      <a href="#" class="mobile-nav-link">Home</a>
+      <a href="#" class="mobile-nav-link">Shop All</a>
+      <a href="#" class="mobile-nav-link">Collections</a>
+      <a href="#" class="mobile-nav-link">About Us</a>
+      <a href="#" class="mobile-nav-link">Journal & Blog</a>
+      <a href="#" class="mobile-nav-link">Contact</a>
+    </nav>
+    <div class="mt-auto pt-6 border-t border-brand-border text-xs text-neutral-500">
+      <p class="font-semibold text-neutral-800 mb-1">Customer Support</p>
+      <p>support@threadora.com</p>
+    </div>
+  </div>
+
+  <main class="flex-grow">
+    <!-- BEGIN: HeroBanner Section -->
+    <section class="relative bg-[#EEEBE5] overflow-hidden" data-purpose="hero-section">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 md:py-24 lg:py-28 flex flex-col md:flex-row items-center justify-between">
+        <!-- Hero Textual Content -->
+        <div class="w-full md:w-1/2 z-10 pr-0 md:pr-8 mb-10 md:mb-0">
+          <span class="text-xs uppercase tracking-[0.25em] text-neutral-500 font-semibold mb-3 block">New Season, New Style</span>
+          <h1 class="font-serif-heading text-4xl sm:text-5xl lg:text-6xl text-neutral-900 font-normal leading-[1.1] mb-5 tracking-tight uppercase">
+            EFFORTLESS STYLE<br/>EVERY DAY
+          </h1>
+          <p class="text-neutral-600 text-sm md:text-base font-light max-w-sm mb-8 leading-relaxed">
+            Discover modern essentials crafted for comfort, quality, and timeless elegance.
+          </p>
+          <a class="inline-block bg-[#4D5943] hover:bg-[#3E4836] text-white text-xs uppercase font-semibold tracking-widest px-8 py-3.5 transition-all shadow-sm" href="#new-arrivals">
+            SHOP NOW
+          </a>
+        </div>
+        <!-- Hero Image Presentation -->
+        <div class="w-full md:w-1/2 flex justify-center md:justify-end relative">
+          <div class="relative w-full max-w-md md:max-w-lg aspect-[4/5] rounded overflow-hidden shadow-sm">
+            <img alt="Woman in relaxed modern linen outfit" class="w-full h-full object-cover object-top" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBTtDnli_mJsiUNAK_pz7bfhFFI5AQlxs8pCphMbi0TwmnltGlDnRwU0wB4S4v8Ln-xgobswRqsRi9cgcIHtkGLOBs45gLjqmUcGghykoW5icBnCFceBO4qNyYOZYd4L8xKrtoRh6vp4aIl7PUYXoOZfaGNBqV35z-0FhcPKoXPtcGZoOLqwUBrHDxCu4S_e35Dg_nKE-Ga9g_n_EQtRDW0zPNgO8jSKRKThJVgV_r4iz4FyGm_NzAE"/>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- END: HeroBanner Section -->
+
+    <!-- BEGIN: ValuePropositionBar Section -->
+    <section class="border-y border-neutral-200 bg-white py-6" data-purpose="trust-badges">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-6 divide-y md:divide-y-0 md:divide-x divide-neutral-200">
+          <!-- Badge 1 -->
+          <div class="flex items-center space-x-3.5 pt-4 md:pt-0 justify-start md:justify-center">
+            <svg class="w-7 h-7 stroke-neutral-700 stroke-[1.3] flex-shrink-0" fill="none" viewBox="0 0 24 24"><path d="M13 16V6a1 1 0 00-1-1H4a1 1 0 00-1 1v10a1 1 0 001 1h1m8-1a1 1 0 01-1 1H9m4-1V8h4l3 3v5h-2m-8 0a2 2 0 104 0m-8 0a2 2 0 114 0m6 0a2 2 0 104 0m-4 0a2 2 0 114 0" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+            <div>
+              <h4 class="text-xs uppercase font-bold tracking-wider text-neutral-900">Free Shipping</h4>
+              <p class="text-[11px] text-neutral-500 font-normal">On orders over $75</p>
+            </div>
+          </div>
+          <!-- Badge 2 -->
+          <div class="flex items-center space-x-3.5 pt-4 md:pt-0 md:pl-6 justify-start md:justify-center">
+            <svg class="w-7 h-7 stroke-neutral-700 stroke-[1.3] flex-shrink-0" fill="none" viewBox="0 0 24 24"><path d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+            <div>
+              <h4 class="text-xs uppercase font-bold tracking-wider text-neutral-900">Easy Returns</h4>
+              <p class="text-[11px] text-neutral-500 font-normal">30-day return policy</p>
+            </div>
+          </div>
+          <!-- Badge 3 -->
+          <div class="flex items-center space-x-3.5 pt-4 md:pt-0 md:pl-6 justify-start md:justify-center">
+            <svg class="w-7 h-7 stroke-neutral-700 stroke-[1.3] flex-shrink-0" fill="none" viewBox="0 0 24 24"><circle cx="12" cy="8" r="6"></circle><path d="m15.477 12.89 1.515 8.526a.5.5 0 0 1-.723.518l-4.269-2.247-4.269 2.247a.5.5 0 0 1-.723-.518l1.515-8.526" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+            <div>
+              <h4 class="text-xs uppercase font-bold tracking-wider text-neutral-900">Premium Quality</h4>
+              <p class="text-[11px] text-neutral-500 font-normal">Carefully selected fabrics</p>
+            </div>
+          </div>
+          <!-- Badge 4 -->
+          <div class="flex items-center space-x-3.5 pt-4 md:pt-0 md:pl-6 justify-start md:justify-center">
+            <svg class="w-7 h-7 stroke-neutral-700 stroke-[1.3] flex-shrink-0" fill="none" viewBox="0 0 24 24"><rect height="11" rx="2" ry="2" width="18" x="3" y="11"></rect><path d="M7 11V7a5 5 0 0 1 10 0v4" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+            <div>
+              <h4 class="text-xs uppercase font-bold tracking-wider text-neutral-900">Secure Checkout</h4>
+              <p class="text-[11px] text-neutral-500 font-normal">100% safe &amp; secure</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- END: ValuePropositionBar Section -->
+
+    <!-- BEGIN: NewArrivalsSection -->
+    <section id="new-arrivals" class="py-16 bg-white" data-purpose="product-showcase">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <!-- Section Title Header -->
+        <div class="text-center mb-12">
+          <h2 class="font-serif-heading text-2xl sm:text-3xl text-neutral-900 uppercase font-medium tracking-widest">NEW ARRIVALS</h2>
+          <div class="w-12 h-[1px] bg-neutral-800 mx-auto mt-2"></div>
+        </div>
+        <!-- Product Cards Grid -->
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-x-4 gap-y-8 lg:gap-x-6">
+          
+          <!-- Product Item 1 -->
+          <div class="product-card group relative flex flex-col" data-product-id="1">
+            <div class="relative w-full aspect-[3/4] bg-neutral-100 overflow-hidden mb-3">
+              <img alt="Linen Blend Shirt Dress" class="w-full h-full object-cover object-top transition duration-300 group-hover:scale-105" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBBBEowAv6nO3m8dN9Nl8nhvoHW86COW0DNZh90J_KseCOsXl8JNKWNunio7YmrKPtif706uLL8uEfviBo1PXLDYZhdb885bMJl635pwc2S94M2rMByeHLPgVro22MIghSohsVYdWNNR56Q0eUbciOBEzYGi2e2VazgabwKyvN4WJ_dfqAfMPcldTiwwuluaq1ulbUj1dLayn22_vhifTS_3n2BFh9zDIKLHteydLLKFyDn4MDPEMtE"/>
+              <button aria-label="Add to wishlist" class="product-card__wishlist-btn" data-wishlist-btn>
+                <svg class="w-4 h-4 stroke-[1.5]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+              </button>
+              <button type="button" class="product-card__quick-add" data-quick-add data-product-id="1" data-product-title="Linen Blend Shirt Dress" data-product-price="54.99" data-product-image="https://lh3.googleusercontent.com/aida-public/AB6AXuBBBEowAv6nO3m8dN9Nl8nhvoHW86COW0DNZh90J_KseCOsXl8JNKWNunio7YmrKPtif706uLL8uEfviBo1PXLDYZhdb885bMJl635pwc2S94M2rMByeHLPgVro22MIghSohsVYdWNNR56Q0eUbciOBEzYGi2e2VazgabwKyvN4WJ_dfqAfMPcldTiwwuluaq1ulbUj1dLayn22_vhifTS_3n2BFh9zDIKLHteydLLKFyDn4MDPEMtE" data-product-variant="Sage / M">
+                + Quick Add
+              </button>
+            </div>
+            <h3 class="text-xs text-neutral-800 font-medium tracking-tight mb-1">Linen Blend Shirt Dress</h3>
+            <span class="text-xs font-semibold text-neutral-900 mb-2">$54.99</span>
+            <!-- Color Swatches -->
+            <div class="color-swatches flex space-x-1.5">
+              <span class="color-swatch active w-2.5 h-2.5 rounded-full bg-[#CBD5C0] border border-neutral-300 inline-block cursor-pointer"></span>
+              <span class="color-swatch w-2.5 h-2.5 rounded-full bg-[#E5DFD4] border border-neutral-300 inline-block cursor-pointer"></span>
+              <span class="color-swatch w-2.5 h-2.5 rounded-full bg-[#1F2022] border border-neutral-300 inline-block cursor-pointer"></span>
+            </div>
+          </div>
+
+          <!-- Product Item 2 -->
+          <div class="product-card group relative flex flex-col" data-product-id="2">
+            <div class="relative w-full aspect-[3/4] bg-neutral-100 overflow-hidden mb-3">
+              <img alt="Oversized Knit Sweater" class="w-full h-full object-cover object-top transition duration-300 group-hover:scale-105" src="https://lh3.googleusercontent.com/aida-public/AB6AXuA8R7jGLN2LmCqv2Yva8g2PxvO0vulL5YwlY5CxhAMusUaPEPQfcDQHXY00PV_LJNJepepFNvhf7prcZAOIp6hMkQFrmVs0mVH7gMCxp4jIwjDntfsWLjzjrAUT75L6NMtFFz5bZ8MeoM4BGYzoN2gfrLwiDTLlk7RS1onJsKgmPif0gD0xwm48FZS-WXhyMD3QZxX2NivFKARIZBRnAvLK_R-KTfFi8cTIwZMmmqin3ADpQ-Idv6Mp"/>
+              <button aria-label="Add to wishlist" class="product-card__wishlist-btn" data-wishlist-btn>
+                <svg class="w-4 h-4 stroke-[1.5]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+              </button>
+              <button type="button" class="product-card__quick-add" data-quick-add data-product-id="2" data-product-title="Oversized Knit Sweater" data-product-price="48.99" data-product-image="https://lh3.googleusercontent.com/aida-public/AB6AXuA8R7jGLN2LmCqv2Yva8g2PxvO0vulL5YwlY5CxhAMusUaPEPQfcDQHXY00PV_LJNJepepFNvhf7prcZAOIp6hMkQFrmVs0mVH7gMCxp4jIwjDntfsWLjzjrAUT75L6NMtFFz5bZ8MeoM4BGYzoN2gfrLwiDTLlk7RS1onJsKgmPif0gD0xwm48FZS-WXhyMD3QZxX2NivFKARIZBRnAvLK_R-KTfFi8cTIwZMmmqin3ADpQ-Idv6Mp" data-product-variant="Oatmeal / L">
+                + Quick Add
+              </button>
+            </div>
+            <h3 class="text-xs text-neutral-800 font-medium tracking-tight mb-1">Oversized Knit Sweater</h3>
+            <span class="text-xs font-semibold text-neutral-900 mb-2">$48.99</span>
+            <div class="color-swatches flex space-x-1.5">
+              <span class="color-swatch active w-2.5 h-2.5 rounded-full bg-[#D7C2B2] border border-neutral-300 inline-block cursor-pointer"></span>
+              <span class="color-swatch w-2.5 h-2.5 rounded-full bg-[#C79986] border border-neutral-300 inline-block cursor-pointer"></span>
+              <span class="color-swatch w-2.5 h-2.5 rounded-full bg-[#B2B9B8] border border-neutral-300 inline-block cursor-pointer"></span>
+            </div>
+          </div>
+
+          <!-- Product Item 3 -->
+          <div class="product-card group relative flex flex-col" data-product-id="3">
+            <div class="relative w-full aspect-[3/4] bg-neutral-100 overflow-hidden mb-3">
+              <img alt="Tailored Wide Leg Pants" class="w-full h-full object-cover object-top transition duration-300 group-hover:scale-105" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBgOLAX-RwQmzKMT-zpN9a8SE3DQWI-JcGJ22IJie134Z20DFhC74T4AGl4JCOFZp29om-hywXt3J533IO91TKk_gPMxLuUYnho5etSPneBlu7o5oxFYj9I55bDZanfopbMoe_auMIr-Fn9ktMJxmQ9I0dKl3VKNrsmCZRf81eYs5AyJ5dnTPpItiPp2iKFWtzk9GoOzeXhnRZ9cbzfMAS_-VGCOi1rLLBpAWyJpNy8Ze59Xu15LYCy"/>
+              <button aria-label="Add to wishlist" class="product-card__wishlist-btn" data-wishlist-btn>
+                <svg class="w-4 h-4 stroke-[1.5]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+              </button>
+              <button type="button" class="product-card__quick-add" data-quick-add data-product-id="3" data-product-title="Tailored Wide Leg Pants" data-product-price="59.99" data-product-image="https://lh3.googleusercontent.com/aida-public/AB6AXuBgOLAX-RwQmzKMT-zpN9a8SE3DQWI-JcGJ22IJie134Z20DFhC74T4AGl4JCOFZp29om-hywXt3J533IO91TKk_gPMxLuUYnho5etSPneBlu7o5oxFYj9I55bDZanfopbMoe_auMIr-Fn9ktMJxmQ9I0dKl3VKNrsmCZRf81eYs5AyJ5dnTPpItiPp2iKFWtzk9GoOzeXhnRZ9cbzfMAS_-VGCOi1rLLBpAWyJpNy8Ze59Xu15LYCy" data-product-variant="Sand / 28">
+                + Quick Add
+              </button>
+            </div>
+            <h3 class="text-xs text-neutral-800 font-medium tracking-tight mb-1">Tailored Wide Leg Pants</h3>
+            <span class="text-xs font-semibold text-neutral-900 mb-2">$59.99</span>
+            <div class="color-swatches flex space-x-1.5">
+              <span class="color-swatch active w-2.5 h-2.5 rounded-full bg-[#CEC3B4] border border-neutral-300 inline-block cursor-pointer"></span>
+              <span class="color-swatch w-2.5 h-2.5 rounded-full bg-[#8E847B] border border-neutral-300 inline-block cursor-pointer"></span>
+              <span class="color-swatch w-2.5 h-2.5 rounded-full bg-[#111111] border border-neutral-300 inline-block cursor-pointer"></span>
+            </div>
+          </div>
+
+          <!-- Product Item 4 -->
+          <div class="product-card group relative flex flex-col" data-product-id="4">
+            <div class="relative w-full aspect-[3/4] bg-neutral-100 overflow-hidden mb-3">
+              <img alt="Ribbed Tank Top" class="w-full h-full object-cover object-top transition duration-300 group-hover:scale-105" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB3sZ9unyUDppDycNa_njh_o52jL6zuLRi-P7cvT9CvEdhjlMQeuPYafql4T9PgKDOuXhG45L3gQguBlmNZ5C6vobB25Q2YHInNj0c-HbeCYlTz1rjPthRlZLCIvC7VRuGJM2JPpHgogvpo7kozhpQ3n_zxrBT1iMotktXnaG8FM7QcVLV_1KhkTQW6ozczZMTPL-tW55xAvPPli_I1o9yrc4WiAA2sweadol2ZKEbqrDcFry9vObiA"/>
+              <button aria-label="Add to wishlist" class="product-card__wishlist-btn" data-wishlist-btn>
+                <svg class="w-4 h-4 stroke-[1.5]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+              </button>
+              <button type="button" class="product-card__quick-add" data-quick-add data-product-id="4" data-product-title="Ribbed Tank Top" data-product-price="24.99" data-product-image="https://lh3.googleusercontent.com/aida-public/AB6AXuB3sZ9unyUDppDycNa_njh_o52jL6zuLRi-P7cvT9CvEdhjlMQeuPYafql4T9PgKDOuXhG45L3gQguBlmNZ5C6vobB25Q2YHInNj0c-HbeCYlTz1rjPthRlZLCIvC7VRuGJM2JPpHgogvpo7kozhpQ3n_zxrBT1iMotktXnaG8FM7QcVLV_1KhkTQW6ozczZMTPL-tW55xAvPPli_I1o9yrc4WiAA2sweadol2ZKEbqrDcFry9vObiA" data-product-variant="Sage / S">
+                + Quick Add
+              </button>
+            </div>
+            <h3 class="text-xs text-neutral-800 font-medium tracking-tight mb-1">Ribbed Tank Top</h3>
+            <span class="text-xs font-semibold text-neutral-900 mb-2">$24.99</span>
+            <div class="color-swatches flex space-x-1.5">
+              <span class="color-swatch active w-2.5 h-2.5 rounded-full bg-[#D4C4B5] border border-neutral-300 inline-block cursor-pointer"></span>
+              <span class="color-swatch w-2.5 h-2.5 rounded-full bg-[#7D8876] border border-neutral-300 inline-block cursor-pointer"></span>
+              <span class="color-swatch w-2.5 h-2.5 rounded-full bg-[#1A1A1A] border border-neutral-300 inline-block cursor-pointer"></span>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+    <!-- END: NewArrivalsSection -->
+
+    <!-- BEGIN: SustainableBanner Section -->
+    <section class="bg-[#4D5943] text-white py-8 md:py-10" data-purpose="brand-sustainability-banner">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row items-center justify-between gap-6">
+        <!-- Left: Icon and message -->
+        <div class="flex items-center space-x-5 text-center md:text-left">
+          <div class="w-14 h-14 rounded-full border border-white/60 flex items-center justify-center flex-shrink-0">
+            <svg class="w-7 h-7 stroke-white stroke-[1.2]" fill="none" viewBox="0 0 24 24">
+              <path d="M12 21a9 9 0 0 1-9-9 9 9 0 0 1 9-9 9 9 0 0 1 9 9 9 9 0 0 1-9 9z" stroke-linecap="round" stroke-linejoin="round"></path>
+              <path d="M7 12c1-3 4-5 8-5m-8 5c3 1 6 3 8 0m-8 0v4" stroke-linecap="round" stroke-linejoin="round"></path>
+            </svg>
+          </div>
+          <div>
+            <h3 class="font-serif-heading text-xl sm:text-2xl font-medium tracking-wide">SUSTAINABLE FASHION</h3>
+            <p class="text-xs text-neutral-200 font-light mt-0.5">Thoughtfully made pieces for a better tomorrow.</p>
+          </div>
+        </div>
+        <!-- Right: Button -->
+        <div>
+          <a class="inline-block bg-white text-neutral-900 hover:bg-neutral-100 text-xs font-semibold uppercase tracking-wider px-7 py-3 transition shadow-sm" href="#">
+            LEARN MORE
+          </a>
+        </div>
+      </div>
+    </section>
+    <!-- END: SustainableBanner Section -->
+
+    <!-- BEGIN: ShopByCategorySection -->
+    <section class="py-16 bg-white" data-purpose="category-showcase">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <!-- Title -->
+        <div class="text-center mb-12">
+          <h2 class="font-serif-heading text-2xl sm:text-3xl text-neutral-900 uppercase font-medium tracking-widest">SHOP BY CATEGORY</h2>
+          <div class="w-12 h-[1px] bg-neutral-800 mx-auto mt-2"></div>
+        </div>
+        <!-- 4 Categories Grid -->
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-4 sm:gap-6">
+          
+          <!-- Category 1: Dresses -->
+          <div class="relative group aspect-[4/5] bg-neutral-100 overflow-hidden flex items-end p-4">
+            <img alt="Dresses collection" class="absolute inset-0 w-full h-full object-cover transition duration-300 group-hover:scale-105" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCXw6_xSh3Qo3lvndr-WMknWBUdziDySrEvNDXvwcNOFFutxdoZ1Q34R0MT2d2DWjruSumChc5yyUc6tRyEnQbpgScZCypQjdTEzVK6WNLpuq3XN0t6qEfirKvnD1Y5WRx6FwNDsHXDK3Yqc6Q78PfUUGTX0yBDhZKNJrtYxI6nVUtJOZQCQVI3QWI5xRQ-0M5-uM-dNZur0dFx_V_KJA9-9EcFbRlJaTIn3_j6xtqh5jTt3BFnv_8q"/>
+            <div class="relative z-10 w-full text-center">
+              <span class="font-serif-heading text-base md:text-lg uppercase text-neutral-900 tracking-wider font-semibold block mb-2">DRESSES</span>
+              <a class="inline-block bg-white/95 hover:bg-white text-[10px] uppercase font-bold tracking-widest px-4 py-2 text-neutral-900 transition" href="#">
+                SHOP NOW
+              </a>
+            </div>
+          </div>
+
+          <!-- Category 2: Tops -->
+          <div class="relative group aspect-[4/5] bg-neutral-100 overflow-hidden flex items-end p-4">
+            <img alt="Tops collection" class="absolute inset-0 w-full h-full object-cover transition duration-300 group-hover:scale-105" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAVKRxvUs2rf2VsLn9P1TSS4K5PBWozfLx-4Jdl0F0mjXkmcr2pS_7sUTDsM_YLPa4-qp61GSIA9zMcD3mqAsSaRWPdsnOPbw_z5ym17fgWQ56LRTV8aG9k1T6WOFx-RuMTA4KvBnQmwfzSHv8kve-wEzlzO6bHFfT4kGpgLcOJQpTg4wvDyH2ztGcZCG_9UX_a0UJl4-rxq2D4EQFOk69o9hhxQAS3xDWXCYg-JQZbTqFOO-QwB8bJ"/>
+            <div class="relative z-10 w-full text-center">
+              <span class="font-serif-heading text-base md:text-lg uppercase text-neutral-900 tracking-wider font-semibold block mb-2">TOPS</span>
+              <a class="inline-block bg-white/95 hover:bg-white text-[10px] uppercase font-bold tracking-widest px-4 py-2 text-neutral-900 transition" href="#">
+                SHOP NOW
+              </a>
+            </div>
+          </div>
+
+          <!-- Category 3: Bottoms -->
+          <div class="relative group aspect-[4/5] bg-neutral-100 overflow-hidden flex items-end p-4">
+            <img alt="Bottoms collection" class="absolute inset-0 w-full h-full object-cover transition duration-300 group-hover:scale-105" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDJGpoBUzx4ssewSPPIoj0Go1XX5r8fpjDnSjpIeI5X-XGiZQJHrLE-JXIPWsL4fhe82DKVf1lq5zJGiGlu38YRUA_4dioU8amyDZOA5q3E_AeHwrDwcjNPV585pw5-ZPfv0AltigWg7ZL2xn5BSp3h33UZ3GGHjPzLUfpoC8mWESPdP2cBlLcVAyHjbY1qBrFLk0Wg1ZpG55Vj3uAyTbHArp07TQzN__YGeWEIc40F4vu-dm5X14bu"/>
+            <div class="relative z-10 w-full text-center">
+              <span class="font-serif-heading text-base md:text-lg uppercase text-neutral-900 tracking-wider font-semibold block mb-2">BOTTOMS</span>
+              <a class="inline-block bg-white/95 hover:bg-white text-[10px] uppercase font-bold tracking-widest px-4 py-2 text-neutral-900 transition" href="#">
+                SHOP NOW
+              </a>
+            </div>
+          </div>
+
+          <!-- Category 4: Accessories -->
+          <div class="relative group aspect-[4/5] bg-neutral-100 overflow-hidden flex items-end p-4">
+            <img alt="Accessories collection" class="absolute inset-0 w-full h-full object-cover transition duration-300 group-hover:scale-105" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAD5NzV56Y9x3I3Ex9CtDTW8RVZu3Nnpk_X75U1eZJvWU9N7VDk3MBY-yJCEk9E38yhTKfDUECL-uvzIwXdi2uYDDuK6622sw3UMEH5Sc-c_YCGVHeaPN83NJhbZP50CCZyPp2gU2u88eFP6n55wLGVe1X8BugRUMPhRY-AoKPjhJD1-zDpOotkIL6wSf520v1XtIB59wRWlbRpLo1j-qL5WAXY0U5F5TRrrr4GrK8MTgpnF-mYC43n"/>
+            <div class="relative z-10 w-full text-center">
+              <span class="font-serif-heading text-base md:text-lg uppercase text-neutral-900 tracking-wider font-semibold block mb-2">ACCESSORIES</span>
+              <a class="inline-block bg-white/95 hover:bg-white text-[10px] uppercase font-bold tracking-widest px-4 py-2 text-neutral-900 transition" href="#">
+                SHOP NOW
+              </a>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+    <!-- END: ShopByCategorySection -->
+
+    <!-- BEGIN: TestimonialSection -->
+    <section class="py-16 bg-[#FAF9F7] border-t border-neutral-200" data-purpose="customer-review">
+      <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative">
+        <h2 class="font-serif-heading text-2xl sm:text-3xl text-neutral-900 uppercase font-medium tracking-widest mb-10">WHAT OUR CUSTOMERS SAY</h2>
+        
+        <!-- Navigation Carats -->
+        <button id="TestimonialPrev" aria-label="Previous Testimonial" class="absolute left-2 sm:left-4 top-1/2 -translate-y-1/2 text-neutral-400 hover:text-neutral-800 transition p-2">
+          <svg class="w-6 h-6 stroke-[1.5]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M15 19l-7-7 7-7" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+        </button>
+        <button id="TestimonialNext" aria-label="Next Testimonial" class="absolute right-2 sm:right-4 top-1/2 -translate-y-1/2 text-neutral-400 hover:text-neutral-800 transition p-2">
+          <svg class="w-6 h-6 stroke-[1.5]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M9 5l7 7-7 7" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+        </button>
+
+        <div class="px-8 sm:px-16">
+          <p id="TestimonialQuote" class="text-neutral-700 text-sm sm:text-base leading-relaxed font-serif italic mb-6 transition-all duration-300">
+            "The quality is amazing and the fit is perfect! I love how everything feels so comfortable and looks so stylish."
+          </p>
+          <!-- 5-Star Rating -->
+          <div class="flex justify-center items-center space-x-1 text-[#56604D] mb-3 text-sm">
+            <span>★</span><span>★</span><span>★</span><span>★</span><span>★</span>
+          </div>
+          <p id="TestimonialAuthor" class="text-xs uppercase font-semibold tracking-widest text-neutral-800">Emily R.</p>
+        </div>
+      </div>
+    </section>
+    <!-- END: TestimonialSection -->
+  </main>
+
+  <!-- BEGIN: SiteFooter Section -->
+  <footer class="bg-neutral-100 border-t border-neutral-200 pt-16 pb-8 text-neutral-600" data-purpose="main-footer">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <!-- Footer Columns -->
+      <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-5 gap-8 mb-12">
+        
+        <!-- Col 1: Brand & Social -->
+        <div class="space-y-4">
+          <h5 class="font-serif-heading text-lg font-bold uppercase tracking-wider text-neutral-900">THREADORA</h5>
+          <p class="text-xs text-neutral-500 leading-relaxed">
+            Timeless style, modern you.<br/>Designed for the way you live.
+          </p>
+          <!-- Social Icons -->
+          <div class="flex space-x-3 text-neutral-700">
+            <a aria-label="Facebook" class="hover:text-black transition" href="#">
+              <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24"><path d="M22 12c0-5.523-4.477-10-10-10S2 6.477 2 12c0 4.991 3.657 9.128 8.438 9.878v-6.987h-2.54V12h2.54V9.797c0-2.506 1.492-3.89 3.777-3.89 1.094 0 2.238.195 2.238.195v2.46h-1.26c-1.243 0-1.63.771-1.63 1.562V12h2.773l-.443 2.89h-2.33v6.988C18.343 21.128 22 16.991 22 12z"></path></svg>
+            </a>
+            <a aria-label="Instagram" class="hover:text-black transition" href="#">
+              <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"></path></svg>
+            </a>
+            <a aria-label="Pinterest" class="hover:text-black transition" href="#">
+              <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24"><path d="M12 0a12 12 0 0 0-4.37 23.18c-.07-.98-.13-2.49.03-3.56l1.07-4.52s-.27-.55-.27-1.36c0-1.27.74-2.22 1.66-2.22.78 0 1.16.59 1.16 1.29 0 .79-.5 1.97-.76 3.07-.22.92.46 1.67 1.36 1.67 1.64 0 2.9-1.73 2.9-4.22 0-2.21-1.59-3.75-3.86-3.75-2.63 0-4.17 1.97-4.17 4.01 0 .79.31 1.65.69 2.11a.34.34 0 0 1 .08.33c-.09.37-.29 1.18-.33 1.35-.05.21-.17.26-.39.16-1.45-.67-2.35-2.79-2.35-4.49 0-3.65 2.65-7.01 7.65-7.01 4.02 0 7.14 2.86 7.14 6.69 0 3.99-2.52 7.2-6.01 7.2-1.17 0-2.28-.61-2.66-1.33l-.72 2.76c-.26 1.01-.97 2.27-1.44 3.05A12 12 0 1 0 12 0z"></path></svg>
+            </a>
+            <a aria-label="TikTok" class="hover:text-black transition" href="#">
+              <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24"><path d="M19.59 6.69a4.83 4.83 0 01-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 01-5.2 1.74 2.89 2.89 0 012.31-4.64c.298-.002.595.042.88.13V9.4a6.33 6.33 0 00-1-.08A6.34 6.34 0 003 15.66a6.34 6.34 0 0010.86 4.43v-7a8.16 8.16 0 004.77 1.52v-3.4a4.85 4.85 0 01-1.04-.52 4.77 4.77 0 01-1-1z"></path></svg>
+            </a>
+          </div>
+        </div>
+
+        <!-- Col 2: Shop Links -->
+        <div>
+          <h5 class="text-xs uppercase font-bold tracking-wider text-neutral-900 mb-4">SHOP</h5>
+          <ul class="space-y-2 text-xs text-neutral-600">
+            <li><a class="hover:text-neutral-900 transition" href="#">All Products</a></li>
+            <li><a class="hover:text-neutral-900 transition" href="#">New Arrivals</a></li>
+            <li><a class="hover:text-neutral-900 transition" href="#">Best Sellers</a></li>
+            <li><a class="hover:text-neutral-900 transition" href="#">Sale</a></li>
+          </ul>
+        </div>
+
+        <!-- Col 3: Customer Care -->
+        <div>
+          <h5 class="text-xs uppercase font-bold tracking-wider text-neutral-900 mb-4">CUSTOMER CARE</h5>
+          <ul class="space-y-2 text-xs text-neutral-600">
+            <li><a class="hover:text-neutral-900 transition" href="#">Shipping &amp; Delivery</a></li>
+            <li><a class="hover:text-neutral-900 transition" href="#">Returns &amp; Exchanges</a></li>
+            <li><a class="hover:text-neutral-900 transition" href="#">FAQs</a></li>
+            <li><a class="hover:text-neutral-900 transition" href="#">Contact Us</a></li>
+          </ul>
+        </div>
+
+        <!-- Col 4: About -->
+        <div>
+          <h5 class="text-xs uppercase font-bold tracking-wider text-neutral-900 mb-4">ABOUT</h5>
+          <ul class="space-y-2 text-xs text-neutral-600">
+            <li><a class="hover:text-neutral-900 transition" href="#">Our Story</a></li>
+            <li><a class="hover:text-neutral-900 transition" href="#">Sustainability</a></li>
+            <li><a class="hover:text-neutral-900 transition" href="#">Careers</a></li>
+            <li><a class="hover:text-neutral-900 transition" href="#">Blog</a></li>
+          </ul>
+        </div>
+
+        <!-- Col 5: Stay in the Loop (Newsletter) -->
+        <div>
+          <h5 class="text-xs uppercase font-bold tracking-wider text-neutral-900 mb-2">STAY IN THE LOOP</h5>
+          <p class="text-xs text-neutral-500 mb-3">Get 10% off your first order when you subscribe!</p>
+          <form class="flex flex-col sm:flex-row gap-2" data-newsletter-form>
+            <input class="w-full bg-white border border-neutral-300 text-xs px-3 py-2 text-neutral-800 placeholder-neutral-400 focus:outline-none focus:border-neutral-500 rounded-none" placeholder="Enter your email" type="email" required/>
+            <button class="bg-[#4D5943] hover:bg-[#3E4836] text-white text-xs font-semibold px-4 py-2 uppercase tracking-wider transition whitespace-nowrap" type="submit">
+              SUBSCRIBE
+            </button>
+          </form>
+        </div>
+
+      </div>
+
+      <!-- Footer Bottom: Copyright & Payment Methods -->
+      <div class="border-t border-neutral-200 pt-6 flex flex-col sm:flex-row items-center justify-between text-xs text-neutral-400 gap-4">
+        <p>© 2024 THREADORA. All Rights Reserved.</p>
+        <!-- Payment Badges -->
+        <div class="flex items-center space-x-4">
+          <span class="font-bold italic tracking-tighter text-neutral-700 text-sm">VISA</span>
+          <div class="flex -space-x-1">
+            <span class="w-4 h-4 rounded-full bg-neutral-400/80 inline-block"></span>
+            <span class="w-4 h-4 rounded-full bg-neutral-600/80 inline-block"></span>
+          </div>
+          <span class="font-bold italic text-neutral-700 text-xs">PayPal</span>
+          <div class="flex items-center space-x-0.5 text-neutral-700 font-medium text-xs">
+            <svg class="w-3.5 h-3.5 fill-current" viewBox="0 0 24 24"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.81-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M15.97 6.37c.62-.75 1.04-1.8 0.92-2.85-.9.04-1.99.6-2.63 1.35-.57.66-.99 1.72-.86 2.74 1 .08 2-.51 2.57-1.24z"></path></svg>
+            <span>Pay</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer>
+  <!-- END: SiteFooter Section -->
+
+  <!-- Slide-out AJAX Cart Drawer -->
+  <div id="CartDrawerOverlay" class="cart-drawer-overlay"></div>
+  <aside id="CartDrawer" class="cart-drawer" role="dialog" aria-modal="true" aria-label="Shopping Bag">
+    <div class="cart-drawer__header">
+      <h3 class="cart-drawer__title">YOUR SHOPPING BAG (<span data-cart-count>1</span>)</h3>
+      <button type="button" id="CartDrawerClose" class="cart-drawer__close" aria-label="Close cart">
+        &times;
+      </button>
+    </div>
+
+    <!-- Free Shipping Calculator -->
+    <div class="cart-drawer__free-shipping">
+      <p id="FreeShippingText" class="cart-drawer__free-shipping-text">
+        Add <strong>$20.01</strong> more for <strong>Free Shipping</strong>
+      </p>
+      <div class="cart-drawer__progress-bar">
+        <div id="FreeShippingBar" class="cart-drawer__progress-fill" style="width: 73.3%;"></div>
+      </div>
+    </div>
+
+    <!-- Cart Line Items Container -->
+    <div id="CartDrawerItems" class="cart-drawer__items">
+      <div class="cart-drawer__item">
+        <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuBBBEowAv6nO3m8dN9Nl8nhvoHW86COW0DNZh90J_KseCOsXl8JNKWNunio7YmrKPtif706uLL8uEfviBo1PXLDYZhdb885bMJl635pwc2S94M2rMByeHLPgVro22MIghSohsVYdWNNR56Q0eUbciOBEzYGi2e2VazgabwKyvN4WJ_dfqAfMPcldTiwwuluaq1ulbUj1dLayn22_vhifTS_3n2BFh9zDIKLHteydLLKFyDn4MDPEMtE" alt="Linen Blend Shirt Dress" class="cart-drawer__item-image">
+        <div class="cart-drawer__item-details">
+          <h4 class="cart-drawer__item-title">Linen Blend Shirt Dress</h4>
+          <span class="cart-drawer__item-variant">Sage / M</span>
+          <span class="cart-drawer__item-price">$54.99</span>
+          <div class="cart-drawer__qty-wrapper">
+            <button type="button" class="cart-drawer__qty-btn" data-cart-action="decrease" data-item-id="1">-</button>
+            <span class="cart-drawer__qty-value">1</span>
+            <button type="button" class="cart-drawer__qty-btn" data-cart-action="increase" data-item-id="1">+</button>
+          </div>
+          <button type="button" class="cart-drawer__item-remove" data-cart-action="remove" data-item-id="1">Remove</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Cart Footer with Subtotal & Checkout -->
+    <div class="cart-drawer__footer">
+      <div class="cart-drawer__subtotal-row">
+        <span class="cart-drawer__subtotal-label">Subtotal</span>
+        <span class="cart-drawer__subtotal-amount" data-cart-subtotal>$54.99</span>
+      </div>
+      <a href="#" class="btn btn-primary btn-full mb-2">
+        PROCEED TO CHECKOUT
+      </a>
+      <p class="text-[10px] text-center text-neutral-400 mt-2">Taxes and shipping calculated at checkout</p>
+    </div>
+  </aside>
+
+  <!-- Toast Container -->
+  <div id="ToastContainer" class="toast-container"></div>
+
+  <!-- Theme JS Controller -->
+  <script src="./assets/theme.js"></script>
+</body>
+</html>
