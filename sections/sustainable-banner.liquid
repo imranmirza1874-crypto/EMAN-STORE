@@ -1,0 +1,67 @@
+<section class="bg-[#4D5943] text-white py-8 md:py-10" data-purpose="brand-sustainability-banner">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row items-center justify-between gap-6">
+    
+    <!-- Left: Icon and message -->
+    <div class="flex items-center space-x-5 text-center md:text-left">
+      <div class="w-14 h-14 rounded-full border border-white/60 flex items-center justify-center flex-shrink-0">
+        <svg class="w-7 h-7 stroke-white stroke-[1.2]" fill="none" viewBox="0 0 24 24">
+          <path d="M12 21a9 9 0 0 1-9-9 9 9 0 0 1 9-9 9 9 0 0 1 9 9 9 9 0 0 1-9 9z" stroke-linecap="round" stroke-linejoin="round"></path>
+          <path d="M7 12c1-3 4-5 8-5m-8 5c3 1 6 3 8 0m-8 0v4" stroke-linecap="round" stroke-linejoin="round"></path>
+        </svg>
+      </div>
+      <div>
+        <h3 class="font-serif-heading text-xl sm:text-2xl font-medium tracking-wide">
+          {{ section.settings.title | default: 'SUSTAINABLE FASHION' }}
+        </h3>
+        <p class="text-xs text-neutral-200 font-light mt-0.5">
+          {{ section.settings.subtitle | default: 'Thoughtfully made pieces for a better tomorrow.' }}
+        </p>
+      </div>
+    </div>
+
+    <!-- Right: Button -->
+    <div>
+      <a class="inline-block bg-white text-neutral-900 hover:bg-neutral-100 text-xs font-semibold uppercase tracking-wider px-7 py-3 transition shadow-sm"
+         href="{{ section.settings.button_link | default: '/pages/sustainability' }}">
+        {{ section.settings.button_label | default: 'LEARN MORE' }}
+      </a>
+    </div>
+
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Sustainable Banner",
+  "settings": [
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Banner Title",
+      "default": "SUSTAINABLE FASHION"
+    },
+    {
+      "type": "text",
+      "id": "subtitle",
+      "label": "Banner Subtitle",
+      "default": "Thoughtfully made pieces for a better tomorrow."
+    },
+    {
+      "type": "text",
+      "id": "button_label",
+      "label": "Button Label",
+      "default": "LEARN MORE"
+    },
+    {
+      "type": "url",
+      "id": "button_link",
+      "label": "Button Link"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Sustainable Banner"
+    }
+  ]
+}
+{% endschema %}
