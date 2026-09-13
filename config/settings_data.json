@@ -1,0 +1,32 @@
+{
+  "current": {
+    "color_primary": "#4D5943",
+    "color_primary_dark": "#3E4836",
+    "color_announcement_bg": "#56604D",
+    "color_sand": "#F7F4F0",
+    "color_cream": "#FAF9F6",
+    "color_charcoal": "#222222",
+    "color_border": "#E5E2DC",
+    "cart_type": "drawer",
+    "free_shipping_threshold": 75,
+    "show_cart_notes": true,
+    "social_facebook_link": "https://facebook.com/threadora",
+    "social_instagram_link": "https://instagram.com/threadora",
+    "social_pinterest_link": "https://pinterest.com/threadora",
+    "social_tiktok_link": "https://tiktok.com/@threadora"
+  },
+  "presets": {
+    "Default": {
+      "color_primary": "#4D5943",
+      "color_primary_dark": "#3E4836",
+      "color_announcement_bg": "#56604D",
+      "color_sand": "#F7F4F0",
+      "color_cream": "#FAF9F6",
+      "color_charcoal": "#222222",
+      "color_border": "#E5E2DC",
+      "cart_type": "drawer",
+      "free_shipping_threshold": 75,
+      "show_cart_notes": true
+    }
+  }
+}
