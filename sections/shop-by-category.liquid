@@ -1,0 +1,187 @@
+<section class="py-16 bg-white" data-purpose="category-showcase">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <!-- Title -->
+    <div class="text-center mb-12">
+      <h2 class="font-serif-heading text-2xl sm:text-3xl text-neutral-900 uppercase font-medium tracking-widest">
+        {{ section.settings.title | default: 'SHOP BY CATEGORY' }}
+      </h2>
+      <div class="w-12 h-[1px] bg-neutral-800 mx-auto mt-2"></div>
+    </div>
+
+    <!-- 4 Categories Grid -->
+    <div class="grid grid-cols-2 md:grid-cols-4 gap-4 sm:gap-6">
+      
+      <!-- Category 1: Dresses -->
+      <div class="relative group aspect-[4/5] bg-neutral-100 overflow-hidden flex items-end p-4">
+        {%- if section.settings.cat_1_image != blank -%}
+          <img src="{{ section.settings.cat_1_image | image_url: width: 600 }}" alt="{{ section.settings.cat_1_title | escape }}" class="absolute inset-0 w-full h-full object-cover transition duration-300 group-hover:scale-105">
+        {%- else -%}
+          <img alt="Dresses collection" class="absolute inset-0 w-full h-full object-cover transition duration-300 group-hover:scale-105" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCXw6_xSh3Qo3lvndr-WMknWBUdziDySrEvNDXvwcNOFFutxdoZ1Q34R0MT2d2DWjruSumChc5yyUc6tRyEnQbpgScZCypQjdTEzVK6WNLpuq3XN0t6qEfirKvnD1Y5WRx6FwNDsHXDK3Yqc6Q78PfUUGTX0yBDhZKNJrtYxI6nVUtJOZQCQVI3QWI5xRQ-0M5-uM-dNZur0dFx_V_KJA9-9EcFbRlJaTIn3_j6xtqh5jTt3BFnv_8q"/>
+        {%- endif -%}
+        <div class="relative z-10 w-full text-center">
+          <span class="font-serif-heading text-base md:text-lg uppercase text-neutral-900 tracking-wider font-semibold block mb-2">
+            {{ section.settings.cat_1_title | default: 'DRESSES' }}
+          </span>
+          <a class="inline-block bg-white/95 hover:bg-white text-[10px] uppercase font-bold tracking-widest px-4 py-2 text-neutral-900 transition"
+             href="{{ section.settings.cat_1_link | default: '/collections/dresses' }}">
+            SHOP NOW
+          </a>
+        </div>
+      </div>
+
+      <!-- Category 2: Tops -->
+      <div class="relative group aspect-[4/5] bg-neutral-100 overflow-hidden flex items-end p-4">
+        {%- if section.settings.cat_2_image != blank -%}
+          <img src="{{ section.settings.cat_2_image | image_url: width: 600 }}" alt="{{ section.settings.cat_2_title | escape }}" class="absolute inset-0 w-full h-full object-cover transition duration-300 group-hover:scale-105">
+        {%- else -%}
+          <img alt="Tops collection" class="absolute inset-0 w-full h-full object-cover transition duration-300 group-hover:scale-105" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAVKRxvUs2rf2VsLn9P1TSS4K5PBWozfLx-4Jdl0F0mjXkmcr2pS_7sUTDsM_YLPa4-qp61GSIA9zMcD3mqAsSaRWPdsnOPbw_z5ym17fgWQ56LRTV8aG9k1T6WOFx-RuMTA4KvBnQmwfzSHv8kve-wEzlzO6bHFfT4kGpgLcOJQpTg4wvDyH2ztGcZCG_9UX_a0UJl4-rxq2D4EQFOk69o9hhxQAS3xDWXCYg-JQZbTqFOO-QwB8bJ"/>
+        {%- endif -%}
+        <div class="relative z-10 w-full text-center">
+          <span class="font-serif-heading text-base md:text-lg uppercase text-neutral-900 tracking-wider font-semibold block mb-2">
+            {{ section.settings.cat_2_title | default: 'TOPS' }}
+          </span>
+          <a class="inline-block bg-white/95 hover:bg-white text-[10px] uppercase font-bold tracking-widest px-4 py-2 text-neutral-900 transition"
+             href="{{ section.settings.cat_2_link | default: '/collections/tops' }}">
+            SHOP NOW
+          </a>
+        </div>
+      </div>
+
+      <!-- Category 3: Bottoms -->
+      <div class="relative group aspect-[4/5] bg-neutral-100 overflow-hidden flex items-end p-4">
+        {%- if section.settings.cat_3_image != blank -%}
+          <img src="{{ section.settings.cat_3_image | image_url: width: 600 }}" alt="{{ section.settings.cat_3_title | escape }}" class="absolute inset-0 w-full h-full object-cover transition duration-300 group-hover:scale-105">
+        {%- else -%}
+          <img alt="Bottoms collection" class="absolute inset-0 w-full h-full object-cover transition duration-300 group-hover:scale-105" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDJGpoBUzx4ssewSPPIoj0Go1XX5r8fpjDnSjpIeI5X-XGiZQJHrLE-JXIPWsL4fhe82DKVf1lq5zJGiGlu38YRUA_4dioU8amyDZOA5q3E_AeHwrDwcjNPV585pw5-ZPfv0AltigWg7ZL2xn5BSp3h33UZ3GGHjPzLUfpoC8mWESPdP2cBlLcVAyHjbY1qBrFLk0Wg1ZpG55Vj3uAyTbHArp07TQzN__YGeWEIc40F4vu-dm5X14bu"/>
+        {%- endif -%}
+        <div class="relative z-10 w-full text-center">
+          <span class="font-serif-heading text-base md:text-lg uppercase text-neutral-900 tracking-wider font-semibold block mb-2">
+            {{ section.settings.cat_3_title | default: 'BOTTOMS' }}
+          </span>
+          <a class="inline-block bg-white/95 hover:bg-white text-[10px] uppercase font-bold tracking-widest px-4 py-2 text-neutral-900 transition"
+             href="{{ section.settings.cat_3_link | default: '/collections/bottoms' }}">
+            SHOP NOW
+          </a>
+        </div>
+      </div>
+
+      <!-- Category 4: Accessories -->
+      <div class="relative group aspect-[4/5] bg-neutral-100 overflow-hidden flex items-end p-4">
+        {%- if section.settings.cat_4_image != blank -%}
+          <img src="{{ section.settings.cat_4_image | image_url: width: 600 }}" alt="{{ section.settings.cat_4_title | escape }}" class="absolute inset-0 w-full h-full object-cover transition duration-300 group-hover:scale-105">
+        {%- else -%}
+          <img alt="Accessories collection" class="absolute inset-0 w-full h-full object-cover transition duration-300 group-hover:scale-105" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAD5NzV56Y9x3I3Ex9CtDTW8RVZu3Nnpk_X75U1eZJvWU9N7VDk3MBY-yJCEk9E38yhTKfDUECL-uvzIwXdi2uYDDuK6622sw3UMEH5Sc-c_YCGVHeaPN83NJhbZP50CCZyPp2gU2u88eFP6n55wLGVe1X8BugRUMPhRY-AoKPjhJD1-zDpOotkIL6wSf520v1XtIB59wRWlbRpLo1j-qL5WAXY0U5F5TRrrr4GrK8MTgpnF-mYC43n"/>
+        {%- endif -%}
+        <div class="relative z-10 w-full text-center">
+          <span class="font-serif-heading text-base md:text-lg uppercase text-neutral-900 tracking-wider font-semibold block mb-2">
+            {{ section.settings.cat_4_title | default: 'ACCESSORIES' }}
+          </span>
+          <a class="inline-block bg-white/95 hover:bg-white text-[10px] uppercase font-bold tracking-widest px-4 py-2 text-neutral-900 transition"
+             href="{{ section.settings.cat_4_link | default: '/collections/accessories' }}">
+            SHOP NOW
+          </a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Shop By Category",
+  "settings": [
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Section Title",
+      "default": "SHOP BY CATEGORY"
+    },
+    {
+      "type": "header",
+      "content": "Category 1"
+    },
+    {
+      "type": "text",
+      "id": "cat_1_title",
+      "label": "Title",
+      "default": "DRESSES"
+    },
+    {
+      "type": "image_picker",
+      "id": "cat_1_image",
+      "label": "Image"
+    },
+    {
+      "type": "url",
+      "id": "cat_1_link",
+      "label": "Link"
+    },
+    {
+      "type": "header",
+      "content": "Category 2"
+    },
+    {
+      "type": "text",
+      "id": "cat_2_title",
+      "label": "Title",
+      "default": "TOPS"
+    },
+    {
+      "type": "image_picker",
+      "id": "cat_2_image",
+      "label": "Image"
+    },
+    {
+      "type": "url",
+      "id": "cat_2_link",
+      "label": "Link"
+    },
+    {
+      "type": "header",
+      "content": "Category 3"
+    },
+    {
+      "type": "text",
+      "id": "cat_3_title",
+      "label": "Title",
+      "default": "BOTTOMS"
+    },
+    {
+      "type": "image_picker",
+      "id": "cat_3_image",
+      "label": "Image"
+    },
+    {
+      "type": "url",
+      "id": "cat_3_link",
+      "label": "Link"
+    },
+    {
+      "type": "header",
+      "content": "Category 4"
+    },
+    {
+      "type": "text",
+      "id": "cat_4_title",
+      "label": "Title",
+      "default": "ACCESSORIES"
+    },
+    {
+      "type": "image_picker",
+      "id": "cat_4_image",
+      "label": "Image"
+    },
+    {
+      "type": "url",
+      "id": "cat_4_link",
+      "label": "Link"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Shop By Category"
+    }
+  ]
+}
+{% endschema %}
