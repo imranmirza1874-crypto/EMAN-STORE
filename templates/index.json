@@ -1,0 +1,67 @@
+{
+  "sections": {
+    "hero_banner": {
+      "type": "hero-banner",
+      "settings": {
+        "badge": "New Season, New Style",
+        "title": "EFFORTLESS STYLE<br>EVERY DAY",
+        "description": "Discover modern essentials crafted for comfort, quality, and timeless elegance.",
+        "button_label": "SHOP NOW"
+      }
+    },
+    "value_props": {
+      "type": "value-props",
+      "settings": {
+        "badge_1_title": "Free Shipping",
+        "badge_1_sub": "On orders over $75",
+        "badge_2_title": "Easy Returns",
+        "badge_2_sub": "30-day return policy",
+        "badge_3_title": "Premium Quality",
+        "badge_3_sub": "Carefully selected fabrics",
+        "badge_4_title": "Secure Checkout",
+        "badge_4_sub": "100% safe & secure"
+      }
+    },
+    "new_arrivals": {
+      "type": "new-arrivals",
+      "settings": {
+        "title": "NEW ARRIVALS",
+        "products_to_show": 4
+      }
+    },
+    "sustainable_banner": {
+      "type": "sustainable-banner",
+      "settings": {
+        "title": "SUSTAINABLE FASHION",
+        "subtitle": "Thoughtfully made pieces for a better tomorrow.",
+        "button_label": "LEARN MORE"
+      }
+    },
+    "shop_by_category": {
+      "type": "shop-by-category",
+      "settings": {
+        "title": "SHOP BY CATEGORY",
+        "cat_1_title": "DRESSES",
+        "cat_2_title": "TOPS",
+        "cat_3_title": "BOTTOMS",
+        "cat_4_title": "ACCESSORIES"
+      }
+    },
+    "testimonials": {
+      "type": "testimonials",
+      "settings": {
+        "title": "WHAT OUR CUSTOMERS SAY",
+        "quote": "The quality is amazing and the fit is perfect! I love how everything feels so comfortable and looks so stylish.",
+        "author": "Emily R."
+      }
+    }
+  },
+  "order": [
+    "hero_banner",
+    "value_props",
+    "new_arrivals",
+    "sustainable_banner",
+    "shop_by_category",
+    "testimonials"
+  ]
+}
