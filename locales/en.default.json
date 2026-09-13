@@ -1,0 +1,83 @@
+{
+  "general": {
+    "search": "Search",
+    "close": "Close",
+    "loading": "Loading...",
+    "continue_shopping": "Continue Shopping",
+    "back_to_home": "Back to Home"
+  },
+  "announcement": {
+    "free_shipping": "FREE SHIPPING ON ORDERS OVER $75 | EASY RETURNS"
+  },
+  "header": {
+    "menu": "Menu",
+    "account": "Account",
+    "cart": "Shopping Bag",
+    "search_placeholder": "Search timeless styles..."
+  },
+  "hero": {
+    "badge": "New Season, New Style",
+    "title": "Effortless Style<br>Every Day",
+    "description": "Discover modern essentials crafted for comfort, quality, and timeless elegance.",
+    "button_label": "Shop Now"
+  },
+  "value_props": {
+    "prop_1_title": "Free Shipping",
+    "prop_1_subtitle": "On orders over $75",
+    "prop_2_title": "Easy Returns",
+    "prop_2_subtitle": "30-day return policy",
+    "prop_3_title": "Premium Quality",
+    "prop_3_subtitle": "Carefully selected fabrics",
+    "prop_4_title": "Secure Checkout",
+    "prop_4_subtitle": "100% safe & secure"
+  },
+  "sections": {
+    "featured_collection": {
+      "title": "New Arrivals",
+      "view_all": "View All Products"
+    },
+    "sustainable_banner": {
+      "title": "Sustainable Fashion",
+      "subtitle": "Thoughtfully made pieces for a better tomorrow.",
+      "button_label": "Learn More"
+    },
+    "collection_list": {
+      "title": "Shop By Category"
+    },
+    "testimonials": {
+      "title": "What Our Customers Say"
+    }
+  },
+  "products": {
+    "product": {
+      "add_to_cart": "Add to Bag",
+      "sold_out": "Sold Out",
+      "on_sale": "Sale",
+      "regular_price": "Regular price",
+      "sale_price": "Sale price",
+      "unit_price": "Unit price",
+      "quantity": "Quantity",
+      "view_details": "View Details"
+    }
+  },
+  "cart": {
+    "title": "Your Shopping Bag",
+    "empty": "Your bag is currently empty.",
+    "subtotal": "Subtotal",
+    "checkout": "Proceed to Checkout",
+    "view_cart": "View Bag",
+    "free_shipping_eligible": "You qualify for free standard shipping!",
+    "free_shipping_away": "Add {{ amount }} more to unlock Free Shipping!"
+  },
+  "footer": {
+    "tagline": "Timeless style, modern you.<br>Designed for the way you live.",
+    "shop_title": "Shop",
+    "customer_care_title": "Customer Care",
+    "about_title": "About",
+    "newsletter_title": "Stay in the Loop",
+    "newsletter_desc": "Get 10% off your first order when you subscribe!",
+    "newsletter_placeholder": "Enter your email",
+    "subscribe": "Subscribe",
+    "copyright": "© 2024 THREADORA. All Rights Reserved."
+  }
+}
