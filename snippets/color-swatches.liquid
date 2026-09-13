@@ -1,0 +1,51 @@
+{% comment %}
+  Renders color swatches for product cards
+  Accepts:
+  - product: {Object} Product Liquid object
+{% endcomment %}
+
+{%- liquid
+  assign color_option_index = -1
+  for option in product.options_with_values
+    assign downcased_option = option.name | downcase
+    if downcased_option contains 'color' or downcased_option contains 'colour'
+      assign color_option_index = forloop.index0
+      assign color_option = option
+      break
+    endif
+  endfor
+-%}
+
+{%- if color_option -%}
+  <div class="color-swatches" aria-label="Available Colors">
+    {%- for value in color_option.values limit: 4 -%}
+      {%- liquid
+        assign color_hex = '#D4C4B5'
+        assign downcased_val = value | downcase
+        if downcased_val contains 'sage' or downcased_val contains 'olive' or downcased_val contains 'green'
+          assign color_hex = '#CBD5C0'
+        elsif downcased_val contains 'sand' or downcased_val contains 'cream' or downcased_val contains 'beige'
+          assign color_hex = '#E5DFD4'
+        elsif downcased_val contains 'black' or downcased_val contains 'charcoal'
+          assign color_hex = '#1F2022'
+        elsif downcased_val contains 'taupe' or downcased_val contains 'brown'
+          assign color_hex = '#C79986'
+        elsif downcased_val contains 'grey' or downcased_val contains 'slate'
+          assign color_hex = '#B2B9B8'
+        endif
+      -%}
+      <span 
+        class="color-swatch {% if forloop.first %}active{% endif %}" 
+        style="background-color: {{ color_hex }};"
+        title="{{ value | escape }}"
+        data-color="{{ value | escape }}"
+      ></span>
+    {%- endfor -%}
+  </div>
+{%- else -%}
+  <div class="color-swatches">
+    <span class="color-swatch active" style="background-color: #CBD5C0;" title="Sage"></span>
+    <span class="color-swatch" style="background-color: #E5DFD4;" title="Sand"></span>
+    <span class="color-swatch" style="background-color: #1F2022;" title="Charcoal"></span>
+  </div>
+{%- endif -%}
