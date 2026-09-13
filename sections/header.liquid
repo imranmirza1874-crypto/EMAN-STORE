@@ -1,0 +1,120 @@
+<header class="border-b border-brand-border bg-white sticky top-0 z-50 transition-all duration-300" data-purpose="main-navigation">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+    
+    <!-- Mobile Hamburger Menu Button -->
+    <button type="button" id="MobileNavTrigger" class="md:hidden text-neutral-800 p-1.5 focus:outline-none" aria-label="Open menu">
+      <svg class="w-6 h-6 stroke-current stroke-2" fill="none" viewBox="0 0 24 24">
+        <path d="M4 6h16M4 12h16M4 18h16" stroke-linecap="round" stroke-linejoin="round"></path>
+      </svg>
+    </button>
+
+    <!-- Logo Branding -->
+    <a class="flex flex-col text-center md:text-left" href="{{ routes.root_url }}">
+      {%- if section.settings.logo != blank -%}
+        <img src="{{ section.settings.logo | image_url: width: 240 }}" alt="{{ shop.name }}" class="h-8 w-auto object-contain">
+      {%- else -%}
+        <span class="font-serif-heading text-2xl sm:text-3xl font-bold tracking-[0.2em] leading-none text-brand-charcoal">
+          {{ section.settings.logo_text | default: 'THREADORA' }}
+        </span>
+        <span class="text-[8px] uppercase tracking-[0.22em] text-neutral-500 mt-1 font-semibold">
+          {{ section.settings.tagline | default: 'Timeless Style, Modern You' }}
+        </span>
+      {%- endif -%}
+    </a>
+
+    <!-- Desktop Navigation Links -->
+    <nav class="hidden md:flex items-center space-x-8 text-xs font-semibold uppercase tracking-wider text-neutral-800">
+      {%- if section.settings.menu != blank -%}
+        {%- for link in linklists[section.settings.menu].links -%}
+          {%- if link.links != blank -%}
+            <div class="relative group cursor-pointer flex items-center gap-1 hover:text-brand-olive transition-colors">
+              <a href="{{ link.url }}">{{ link.title }}</a>
+              {% render 'icon-arrow', direction: 'down' %}
+              <!-- Dropdown Menu -->
+              <div class="absolute top-full left-0 hidden group-hover:block bg-white shadow-lg border border-neutral-100 py-2 min-w-[180px] z-50">
+                {%- for childlink in link.links -%}
+                  <a href="{{ childlink.url }}" class="block px-4 py-2 text-[11px] text-neutral-700 hover:bg-neutral-50 hover:text-brand-olive">
+                    {{ childlink.title }}
+                  </a>
+                {%- endfor -%}
+              </div>
+            </div>
+          {%- else -%}
+            <a class="hover:text-brand-olive transition-colors" href="{{ link.url }}">{{ link.title }}</a>
+          {%- endif -%}
+        {%- endfor -%}
+      {%- else -%}
+        <!-- Default fallback menu -->
+        <a class="hover:text-brand-olive transition-colors" href="/">Home</a>
+        <div class="relative group cursor-pointer flex items-center gap-1 hover:text-brand-olive transition-colors">
+          <span>Shop</span>
+          {% render 'icon-arrow', direction: 'down' %}
+        </div>
+        <div class="relative group cursor-pointer flex items-center gap-1 hover:text-brand-olive transition-colors">
+          <span>Collections</span>
+          {% render 'icon-arrow', direction: 'down' %}
+        </div>
+        <a class="hover:text-brand-olive transition-colors" href="/pages/about-us">About Us</a>
+        <a class="hover:text-brand-olive transition-colors" href="/blogs/news">Blog</a>
+        <a class="hover:text-brand-olive transition-colors" href="/pages/contact">Contact</a>
+      {%- endif -%}
+    </nav>
+
+    <!-- Action Utility Icons -->
+    <div class="flex items-center space-x-5 text-neutral-800">
+      <!-- Search Trigger -->
+      <a href="{{ routes.search_url }}" aria-label="Search" class="hover:text-brand-olive transition-colors">
+        {% render 'icon-search' %}
+      </a>
+
+      <!-- Account Trigger -->
+      {%- if shop.customer_accounts_enabled -%}
+        <a href="{% if customer %}{{ routes.account_url }}{% else %}{{ routes.account_login_url }}{% endif %}" aria-label="Account" class="hover:text-brand-olive transition-colors">
+          {% render 'icon-account' %}
+        </a>
+      {%- else -%}
+        <a href="/account" aria-label="Account" class="hover:text-brand-olive transition-colors">
+          {% render 'icon-account' %}
+        </a>
+      {%- endif -%}
+
+      <!-- Shopping Bag Trigger -->
+      <button type="button" aria-label="Shopping Bag" class="hover:text-brand-olive transition-colors relative" data-cart-trigger>
+        {% render 'icon-cart' %}
+        <span class="absolute -top-1.5 -right-2 bg-neutral-800 text-white rounded-full text-[9px] w-4 h-4 flex items-center justify-center font-bold" data-cart-count>
+          {{ cart.item_count | default: 1 }}
+        </span>
+      </button>
+    </div>
+  </div>
+</header>
+
+{% schema %}
+{
+  "name": "Header",
+  "settings": [
+    {
+      "type": "image_picker",
+      "id": "logo",
+      "label": "Logo Image"
+    },
+    {
+      "type": "text",
+      "id": "logo_text",
+      "label": "Logo Text",
+      "default": "THREADORA"
+    },
+    {
+      "type": "text",
+      "id": "tagline",
+      "label": "Logo Subtitle/Tagline",
+      "default": "Timeless Style, Modern You"
+    },
+    {
+      "type": "link_list",
+      "id": "menu",
+      "label": "Main Menu"
+    }
+  ]
+}
+{% endschema %}
