@@ -1,0 +1,199 @@
+<footer class="bg-neutral-100 border-t border-neutral-200 pt-16 pb-8 text-neutral-600" data-purpose="main-footer">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <!-- Footer Columns -->
+    <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-5 gap-8 mb-12">
+      
+      <!-- Col 1: Brand & Social -->
+      <div class="space-y-4">
+        <h5 class="font-serif-heading text-lg font-bold uppercase tracking-wider text-neutral-900">
+          {{ section.settings.brand_name | default: 'THREADORA' }}
+        </h5>
+        <p class="text-xs text-neutral-500 leading-relaxed">
+          {{ section.settings.tagline | default: 'Timeless style, modern you.<br>Designed for the way you live.' }}
+        </p>
+        
+        <!-- Social Icons -->
+        <div class="flex space-x-3 text-neutral-700">
+          <a aria-label="Facebook" class="hover:text-black transition" href="{{ settings.social_facebook_link | default: '#' }}" target="_blank">
+            {% render 'icon-social', type: 'facebook' %}
+          </a>
+          <a aria-label="Instagram" class="hover:text-black transition" href="{{ settings.social_instagram_link | default: '#' }}" target="_blank">
+            {% render 'icon-social', type: 'instagram' %}
+          </a>
+          <a aria-label="Pinterest" class="hover:text-black transition" href="{{ settings.social_pinterest_link | default: '#' }}" target="_blank">
+            {% render 'icon-social', type: 'pinterest' %}
+          </a>
+          <a aria-label="TikTok" class="hover:text-black transition" href="{{ settings.social_tiktok_link | default: '#' }}" target="_blank">
+            {% render 'icon-social', type: 'tiktok' %}
+          </a>
+        </div>
+      </div>
+
+      <!-- Col 2: Shop Links -->
+      <div>
+        <h5 class="text-xs uppercase font-bold tracking-wider text-neutral-900 mb-4">
+          {{ section.settings.menu_1_title | default: 'SHOP' }}
+        </h5>
+        <ul class="space-y-2 text-xs text-neutral-600">
+          {%- if section.settings.menu_1 != blank -%}
+            {%- for link in linklists[section.settings.menu_1].links -%}
+              <li><a class="hover:text-neutral-900 transition" href="{{ link.url }}">{{ link.title }}</a></li>
+            {%- endfor -%}
+          {%- else -%}
+            <li><a class="hover:text-neutral-900 transition" href="/collections/all">All Products</a></li>
+            <li><a class="hover:text-neutral-900 transition" href="/collections/new-arrivals">New Arrivals</a></li>
+            <li><a class="hover:text-neutral-900 transition" href="/collections/best-sellers">Best Sellers</a></li>
+            <li><a class="hover:text-neutral-900 transition" href="/collections/sale">Sale</a></li>
+          {%- endif -%}
+        </ul>
+      </div>
+
+      <!-- Col 3: Customer Care -->
+      <div>
+        <h5 class="text-xs uppercase font-bold tracking-wider text-neutral-900 mb-4">
+          {{ section.settings.menu_2_title | default: 'CUSTOMER CARE' }}
+        </h5>
+        <ul class="space-y-2 text-xs text-neutral-600">
+          {%- if section.settings.menu_2 != blank -%}
+            {%- for link in linklists[section.settings.menu_2].links -%}
+              <li><a class="hover:text-neutral-900 transition" href="{{ link.url }}">{{ link.title }}</a></li>
+            {%- endfor -%}
+          {%- else -%}
+            <li><a class="hover:text-neutral-900 transition" href="/pages/shipping">Shipping & Delivery</a></li>
+            <li><a class="hover:text-neutral-900 transition" href="/pages/returns">Returns & Exchanges</a></li>
+            <li><a class="hover:text-neutral-900 transition" href="/pages/faq">FAQs</a></li>
+            <li><a class="hover:text-neutral-900 transition" href="/pages/contact">Contact Us</a></li>
+          {%- endif -%}
+        </ul>
+      </div>
+
+      <!-- Col 4: About -->
+      <div>
+        <h5 class="text-xs uppercase font-bold tracking-wider text-neutral-900 mb-4">
+          {{ section.settings.menu_3_title | default: 'ABOUT' }}
+        </h5>
+        <ul class="space-y-2 text-xs text-neutral-600">
+          {%- if section.settings.menu_3 != blank -%}
+            {%- for link in linklists[section.settings.menu_3].links -%}
+              <li><a class="hover:text-neutral-900 transition" href="{{ link.url }}">{{ link.title }}</a></li>
+            {%- endfor -%}
+          {%- else -%}
+            <li><a class="hover:text-neutral-900 transition" href="/pages/our-story">Our Story</a></li>
+            <li><a class="hover:text-neutral-900 transition" href="/pages/sustainability">Sustainability</a></li>
+            <li><a class="hover:text-neutral-900 transition" href="/pages/careers">Careers</a></li>
+            <li><a class="hover:text-neutral-900 transition" href="/blogs/news">Blog</a></li>
+          {%- endif -%}
+        </ul>
+      </div>
+
+      <!-- Col 5: Stay in the Loop (Newsletter) -->
+      <div>
+        <h5 class="text-xs uppercase font-bold tracking-wider text-neutral-900 mb-2">
+          {{ section.settings.newsletter_title | default: 'STAY IN THE LOOP' }}
+        </h5>
+        <p class="text-xs text-neutral-500 mb-3">
+          {{ section.settings.newsletter_desc | default: 'Get 10% off your first order when you subscribe!' }}
+        </p>
+        <form class="flex flex-col sm:flex-row gap-2" data-newsletter-form>
+          <input 
+            type="email" 
+            placeholder="Enter your email" 
+            required 
+            class="w-full bg-white border border-neutral-300 text-xs px-3 py-2 text-neutral-800 placeholder-neutral-400 focus:outline-none focus:border-neutral-500 rounded-none"
+          />
+          <button type="submit" class="bg-[#4D5943] hover:bg-[#3E4836] text-white text-xs font-semibold px-4 py-2 uppercase tracking-wider transition whitespace-nowrap">
+            SUBSCRIBE
+          </button>
+        </form>
+      </div>
+
+    </div>
+
+    <!-- Footer Bottom: Copyright & Payment Methods -->
+    <div class="border-t border-neutral-200 pt-6 flex flex-col sm:flex-row items-center justify-between text-xs text-neutral-400 gap-4">
+      <p>&copy; {{ 'now' | date: '%Y' }} THREADORA. All Rights Reserved.</p>
+      {% render 'icon-payment' %}
+    </div>
+  </div>
+</footer>
+
+{% schema %}
+{
+  "name": "Footer",
+  "settings": [
+    {
+      "type": "text",
+      "id": "brand_name",
+      "label": "Brand Name",
+      "default": "THREADORA"
+    },
+    {
+      "type": "textarea",
+      "id": "tagline",
+      "label": "Brand Tagline",
+      "default": "Timeless style, modern you.<br>Designed for the way you live."
+    },
+    {
+      "type": "header",
+      "content": "Column 2 Menu"
+    },
+    {
+      "type": "text",
+      "id": "menu_1_title",
+      "label": "Title",
+      "default": "SHOP"
+    },
+    {
+      "type": "link_list",
+      "id": "menu_1",
+      "label": "Menu"
+    },
+    {
+      "type": "header",
+      "content": "Column 3 Menu"
+    },
+    {
+      "type": "text",
+      "id": "menu_2_title",
+      "label": "Title",
+      "default": "CUSTOMER CARE"
+    },
+    {
+      "type": "link_list",
+      "id": "menu_2",
+      "label": "Menu"
+    },
+    {
+      "type": "header",
+      "content": "Column 4 Menu"
+    },
+    {
+      "type": "text",
+      "id": "menu_3_title",
+      "label": "Title",
+      "default": "ABOUT"
+    },
+    {
+      "type": "link_list",
+      "id": "menu_3",
+      "label": "Menu"
+    },
+    {
+      "type": "header",
+      "content": "Newsletter"
+    },
+    {
+      "type": "text",
+      "id": "newsletter_title",
+      "label": "Newsletter Title",
+      "default": "STAY IN THE LOOP"
+    },
+    {
+      "type": "textarea",
+      "id": "newsletter_desc",
+      "label": "Newsletter Description",
+      "default": "Get 10% off your first order when you subscribe!"
+    }
+  ]
+}
+{% endschema %}
