@@ -1,0 +1,18 @@
+{% case direction %}
+  {% when 'left' %}
+    <svg class="w-6 h-6 stroke-[1.5]" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+      <path d="M15 19l-7-7 7-7" stroke-linecap="round" stroke-linejoin="round"></path>
+    </svg>
+  {% when 'right' %}
+    <svg class="w-6 h-6 stroke-[1.5]" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+      <path d="M9 5l7 7-7 7" stroke-linecap="round" stroke-linejoin="round"></path>
+    </svg>
+  {% when 'down' %}
+    <svg class="w-3.5 h-3.5 stroke-current" fill="none" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+      <path d="M19 9l-7 7-7-7" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
+    </svg>
+  {% else %}
+    <svg class="w-4 h-4 stroke-current" fill="none" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+      <path d="M5 12h14M12 5l7 7-7 7" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
+    </svg>
+{% endcase %}
