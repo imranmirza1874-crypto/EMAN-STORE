@@ -1,0 +1,25 @@
+{% comment %}
+  Main 404 Section for Threadora Theme
+{% endcomment %}
+
+<section class="py-20 md:py-28 bg-[#FAF9F7] text-center">
+  <div class="max-w-md mx-auto px-4">
+    <span class="font-serif-heading text-6xl text-neutral-400 font-light block mb-2">404</span>
+    <h1 class="font-serif-heading text-2xl sm:text-3xl text-neutral-900 uppercase font-medium mb-4">
+      Page Not Found
+    </h1>
+    <p class="text-xs text-neutral-600 mb-8 leading-relaxed">
+      The page you were looking for could not be found. Discover our latest seasonal essentials instead.
+    </p>
+    <a href="{{ routes.root_url }}" class="btn btn-primary text-xs font-semibold tracking-widest uppercase">
+      {{ 'general.back_to_home' | t }}
+    </a>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Main 404",
+  "settings": []
+}
+{% endschema %}
